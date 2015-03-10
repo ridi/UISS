@@ -23,4 +23,12 @@
 #define UISS_LOG(...)
 #endif
 
+#ifdef __IPHONE_7_0
+#define UITextAttributeTextShadowColor @"UITextAttributeTextShadowColor"
+#define UITextAttributeTextShadowOffset @"UITextAttributeTextShadowOffset"
+#else
+#define UITextAttributeTextShadowColor UITextAttributeTextShadowColor
+#define UITextAttributeTextShadowOffset UITextAttributeTextShadowOffset
+#endif
+
 #endif

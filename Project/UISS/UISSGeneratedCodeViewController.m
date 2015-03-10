@@ -48,7 +48,9 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Phone",
                                                                                                                @"Pad",
                                                                                                                nil]];
+#ifndef __IPHONE_7_0
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+#endif
     [segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segmentedControl;
 }

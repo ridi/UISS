@@ -53,10 +53,10 @@
         NSDictionary *dictionary = (NSDictionary *) value;
 
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        [self convertProperty:UISS_FONT_KEY fromDictionary:dictionary toDictionary:attributes withKey:UITextAttributeFont
+        [self convertProperty:UISS_FONT_KEY fromDictionary:dictionary toDictionary:attributes withKey:NSFontAttributeName
                usingConverter:self.fontConverter];
 
-        [self convertProperty:UISS_TEXT_COLOR_KEY fromDictionary:dictionary toDictionary:attributes withKey:UITextAttributeTextColor
+        [self convertProperty:UISS_TEXT_COLOR_KEY fromDictionary:dictionary toDictionary:attributes withKey:NSForegroundColorAttributeName
                usingConverter:self.colorConverter];
 
         [self convertProperty:UISS_TEXT_SHADOW_COLOR_KEY fromDictionary:dictionary toDictionary:attributes withKey:UITextAttributeTextShadowColor
