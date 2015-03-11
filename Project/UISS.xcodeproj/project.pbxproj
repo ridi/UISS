@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */; };
+		833FDA791AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */; };
 		C8D2B032C59FD11A701C83C8 /* UISSSettingDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B021E9CB72A0ADBADDEE /* UISSSettingDescriptor.h */; };
 		C8D2B2E56583BF0D585ECFC4 /* UISSSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B93A4CE1D6D274BC9D3D /* UISSSettingsViewController.h */; };
 		C8D2B403B49E791D1C7C7839 /* UIFont+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */; };
@@ -200,6 +202,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSKeyboardAppearanceValueConverter.h; sourceTree = "<group>"; };
+		833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSKeyboardAppearanceValueConverter.m; sourceTree = "<group>"; };
 		C8D2B021E9CB72A0ADBADDEE /* UISSSettingDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSSettingDescriptor.h; sourceTree = "<group>"; };
 		C8D2B2AB02BB0DD97B7675C3 /* UISSImageResizingModeValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSImageResizingModeValueConverter.m; sourceTree = "<group>"; };
 		C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+UISS.m"; sourceTree = "<group>"; };
@@ -526,10 +530,12 @@
 				E1A775B11566E8D6000406CC /* UISSToolbarPositionValueConverter.m */,
 				E116C4F0156E7E4200CA1BCB /* UISSSearchBarIconValueConverter.h */,
 				E116C4F1156E7E4200CA1BCB /* UISSSearchBarIconValueConverter.m */,
-				C8D2B2AB02BB0DD97B7675C3 /* UISSImageResizingModeValueConverter.m */,
 				C8D2B85B301B08AE70AFFFB7 /* UISSImageResizingModeValueConverter.h */,
-				C8D2B46579BB4A74DA7B5D27 /* UISSTextAlignmentValueConverter.m */,
+				C8D2B2AB02BB0DD97B7675C3 /* UISSImageResizingModeValueConverter.m */,
 				C8D2B9582FDA98878B10CBA5 /* UISSTextAlignmentValueConverter.h */,
+				C8D2B46579BB4A74DA7B5D27 /* UISSTextAlignmentValueConverter.m */,
+				833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */,
+				833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */,
 			);
 			name = "UIKit Enums";
 			sourceTree = "<group>";
@@ -972,6 +978,7 @@
 				E1BCCC35157F634B001E4429 /* UISSConsoleViewController.h in Headers */,
 				E1076BEA157F6B1A00886759 /* UISSStatusViewController.h in Headers */,
 				E145C8581584AF820087BB1B /* NSString+UISS.h in Headers */,
+				833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */,
 				E145C8631584DCC70087BB1B /* UISSConfig.h in Headers */,
 				E13B646615890CC800E3613B /* UISSArgumentValueConverter.h in Headers */,
 				E123BA1E158A38FA004F8633 /* UISSAppearancePrivate.h in Headers */,
@@ -1187,6 +1194,7 @@
 				E1C67BD7158CCBD800E220BB /* UISSGeneratedCodeViewController.m in Sources */,
 				E1C08348158E334E007A88E6 /* UISSError.m in Sources */,
 				E1F35EB21593A3F20074389E /* UIView+UISS.m in Sources */,
+				833FDA791AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m in Sources */,
 				E18C7C20158F52B1000D45AC /* UISSErrorsViewController.m in Sources */,
 				E1914CB0158F99BB00E04977 /* UISSStyle.m in Sources */,
 				E1BBEBF01598776D001F7A60 /* UISSStatusView.m in Sources */,

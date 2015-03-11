@@ -10,6 +10,7 @@
 #import "UISSSearchBarIconValueConverter.h"
 #import "UISSTextAlignmentValueConverter.h"
 #import "UISSImageResizingModeValueConverter.h"
+#import "UISSKeyboardAppearanceValueConverter.h"
 
 @interface UISSUIKitEnumsValueConvertersTests : SenTestCase
 
@@ -77,6 +78,17 @@
     STAssertEquals([[converter convertValue:@"bottom"] integerValue], UIToolbarPositionBottom, nil);
     STAssertEquals([[converter convertValue:@"top"] integerValue], UIToolbarPositionTop, nil);
 
+    STAssertNil([converter convertValue:@"dummy"], nil);
+}
+
+- (void)testKeyboardAppearance {
+    UISSKeyboardAppearanceValueConverter *converter = [[UISSKeyboardAppearanceValueConverter alloc] init];
+    
+    STAssertEquals([[converter convertValue:@"default"] integerValue], UIKeyboardAppearanceDefault, nil);
+    STAssertEquals([[converter convertValue:@"dark"] integerValue], UIKeyboardAppearanceDark, nil);
+    STAssertEquals([[converter convertValue:@"light"] integerValue], UIKeyboardAppearanceLight, nil);
+    STAssertEquals([[converter convertValue:@"alert"] integerValue], UIKeyboardAppearanceAlert, nil);
+    
     STAssertNil([converter convertValue:@"dummy"], nil);
 }
 

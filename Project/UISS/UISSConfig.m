@@ -24,6 +24,7 @@
 #import "UISSVariablesPreprocessor.h"
 #import "UISSDisabledKeysPreprocessor.h"
 #import "UISSTextAlignmentValueConverter.h"
+#import "UISSKeyboardAppearanceValueConverter.h"
 
 @implementation UISSConfig
 
@@ -53,6 +54,8 @@
                             [[UISSOffsetValueConverter alloc] init],
             
                             [[UISSTextAlignmentValueConverter alloc] init],
+            
+                            [[UISSKeyboardAppearanceValueConverter alloc] init],
 
                             [[UISSIntegerValueConverter alloc] init],
                             [[UISSUIntegerValueConverter alloc] init],
