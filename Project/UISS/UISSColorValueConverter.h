@@ -7,4 +7,6 @@
 
 @interface UISSColorValueConverter : NSObject <UISSArgumentValueConverter>
 
+@property (nonatomic) BOOL shouldProcessPatternImageConvert; // Default YES
+
 @end

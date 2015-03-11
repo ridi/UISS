@@ -4,7 +4,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "UISSColorValueConverter.h"
-#import "UIColor+UISS.h"
+#import "UIColor+UISSDemo.h"
 
 @interface UISSColorValueConverterTests : SenTestCase
 

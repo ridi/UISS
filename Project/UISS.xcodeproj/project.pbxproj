@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */; };
 		833FDA791AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */; };
+		83CD32E01AB03957002EF2CA /* UIImage+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */; };
+		83CD32E11AB03957002EF2CA /* UIImage+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */; };
+		83CD32E41AB0442D002EF2CA /* UIColor+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */; };
+		83CD32E51AB0442D002EF2CA /* UIColor+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD32E31AB0442D002EF2CA /* UIColor+UISS.m */; };
 		C8D2B032C59FD11A701C83C8 /* UISSSettingDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B021E9CB72A0ADBADDEE /* UISSSettingDescriptor.h */; };
 		C8D2B2E56583BF0D585ECFC4 /* UISSSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B93A4CE1D6D274BC9D3D /* UISSSettingsViewController.h */; };
 		C8D2B403B49E791D1C7C7839 /* UIFont+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */; };
 		C8D2B5AED4BB2B1D68E5BA5C /* UISS+GestureRecognizers.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B4CE65CB70FCA36103FD /* UISS+GestureRecognizers.h */; };
 		C8D2B6D7D19B634D46ADF86E /* UISSControlStateValueConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BEDF507CA856D0EC5FDF /* UISSControlStateValueConverterTests.m */; };
 		C8D2B737075866F8A4B09620 /* UISSImageResizingModeValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2B2AB02BB0DD97B7675C3 /* UISSImageResizingModeValueConverter.m */; };
-		C8D2B882971405B0DC662C1C /* UIColor+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BFB8B66546E53D9B8591 /* UIColor+UISS.m */; };
+		C8D2B882971405B0DC662C1C /* UIColor+UISSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BFB8B66546E53D9B8591 /* UIColor+UISSDemo.m */; };
 		C8D2BA939890EB0161165E37 /* UIFont+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */; };
 		C8D2BA99525048D454BCA45D /* UISS+GestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BB6EF9D36E1EAF33EC36 /* UISS+GestureRecognizers.m */; };
 		C8D2BABA25A2F8B6734D5E39 /* UISSImageResizingModeValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B85B301B08AE70AFFFB7 /* UISSImageResizingModeValueConverter.h */; };
@@ -23,7 +27,7 @@
 		C8D2BDE3D04A0D24CCA2E6B8 /* UISSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BE76126D6B08745F39C2 /* UISSSettingsViewController.m */; };
 		C8D2BEB7BAC6C878B58BC1A9 /* UISSTextAlignmentValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = C8D2B9582FDA98878B10CBA5 /* UISSTextAlignmentValueConverter.h */; };
 		C8D2BF2ADDB11891AE3310FA /* UISSSettingDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2B3AFF5607C8D195A9263 /* UISSSettingDescriptor.m */; };
-		C8D2BF8B489FC38682ED03F5 /* UIColor+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BFB8B66546E53D9B8591 /* UIColor+UISS.m */; };
+		C8D2BF8B489FC38682ED03F5 /* UIColor+UISSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BFB8B66546E53D9B8591 /* UIColor+UISSDemo.m */; };
 		E1076BEA157F6B1A00886759 /* UISSStatusViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1076BE8157F6B1A00886759 /* UISSStatusViewController.h */; };
 		E1076BEB157F6B1A00886759 /* UISSStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1076BE9157F6B1A00886759 /* UISSStatusViewController.m */; };
 		E10D5E551574BBA400185009 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E10D5E4B1574BBA400185009 /* Icon-72.png */; };
@@ -204,13 +208,17 @@
 /* Begin PBXFileReference section */
 		833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSKeyboardAppearanceValueConverter.h; sourceTree = "<group>"; };
 		833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSKeyboardAppearanceValueConverter.m; sourceTree = "<group>"; };
+		83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UISS.h"; sourceTree = "<group>"; };
+		83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UISS.m"; sourceTree = "<group>"; };
+		83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UISS.h"; sourceTree = "<group>"; };
+		83CD32E31AB0442D002EF2CA /* UIColor+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UISS.m"; sourceTree = "<group>"; };
 		C8D2B021E9CB72A0ADBADDEE /* UISSSettingDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSSettingDescriptor.h; sourceTree = "<group>"; };
 		C8D2B2AB02BB0DD97B7675C3 /* UISSImageResizingModeValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSImageResizingModeValueConverter.m; sourceTree = "<group>"; };
 		C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+UISS.m"; sourceTree = "<group>"; };
 		C8D2B3AFF5607C8D195A9263 /* UISSSettingDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSSettingDescriptor.m; sourceTree = "<group>"; };
 		C8D2B46579BB4A74DA7B5D27 /* UISSTextAlignmentValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSTextAlignmentValueConverter.m; sourceTree = "<group>"; };
 		C8D2B4CE65CB70FCA36103FD /* UISS+GestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISS+GestureRecognizers.h"; sourceTree = "<group>"; };
-		C8D2B7045F4443C604CDE6B5 /* UIColor+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UISS.h"; sourceTree = "<group>"; };
+		C8D2B7045F4443C604CDE6B5 /* UIColor+UISSDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UISSDemo.h"; sourceTree = "<group>"; };
 		C8D2B85B301B08AE70AFFFB7 /* UISSImageResizingModeValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSImageResizingModeValueConverter.h; sourceTree = "<group>"; };
 		C8D2B93A4CE1D6D274BC9D3D /* UISSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSSettingsViewController.h; sourceTree = "<group>"; };
 		C8D2B9582FDA98878B10CBA5 /* UISSTextAlignmentValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSTextAlignmentValueConverter.h; sourceTree = "<group>"; };
@@ -218,7 +226,7 @@
 		C8D2BE31C5F42A9DC7EFCA6B /* UIFont+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+UISS.h"; sourceTree = "<group>"; };
 		C8D2BE76126D6B08745F39C2 /* UISSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSSettingsViewController.m; sourceTree = "<group>"; };
 		C8D2BEDF507CA856D0EC5FDF /* UISSControlStateValueConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSControlStateValueConverterTests.m; sourceTree = "<group>"; };
-		C8D2BFB8B66546E53D9B8591 /* UIColor+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UISS.m"; sourceTree = "<group>"; };
+		C8D2BFB8B66546E53D9B8591 /* UIColor+UISSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UISSDemo.m"; sourceTree = "<group>"; };
 		E1076BE8157F6B1A00886759 /* UISSStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSStatusViewController.h; sourceTree = "<group>"; };
 		E1076BE9157F6B1A00886759 /* UISSStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSStatusViewController.m; sourceTree = "<group>"; };
 		E10D5E4B1574BBA400185009 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -425,8 +433,8 @@
 		C8D2B365C39AD097A4C427D2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				C8D2B7045F4443C604CDE6B5 /* UIColor+UISS.h */,
-				C8D2BFB8B66546E53D9B8591 /* UIColor+UISS.m */,
+				C8D2B7045F4443C604CDE6B5 /* UIColor+UISSDemo.h */,
+				C8D2BFB8B66546E53D9B8591 /* UIColor+UISSDemo.m */,
 				C8D2B38720F19D0CC0E45FFB /* UIFont+UISS.m */,
 				C8D2BE31C5F42A9DC7EFCA6B /* UIFont+UISS.h */,
 			);
@@ -751,6 +759,10 @@
 				E1A7739715668F80000406CC /* UILabel+UISS.m */,
 				E1F35EAF1593A3F20074389E /* UIView+UISS.h */,
 				E1F35EB01593A3F20074389E /* UIView+UISS.m */,
+				83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */,
+				83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */,
+				83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */,
+				83CD32E31AB0442D002EF2CA /* UIColor+UISS.m */,
 			);
 			name = "UIKit Helpers";
 			sourceTree = "<group>";
@@ -959,6 +971,7 @@
 				E12DA0CD155ABCF40066CCC3 /* UISSPointValueConverter.h in Headers */,
 				E12DA0D5155ABE500066CCC3 /* UISSIntegerValueConverter.h in Headers */,
 				E12DA0D9155ABE5E0066CCC3 /* UISSFloatValueConverter.h in Headers */,
+				83CD32E01AB03957002EF2CA /* UIImage+UISS.h in Headers */,
 				E1F48245156259FE00CFA72E /* UISSUIntegerValueConverter.h in Headers */,
 				E129E5DE1563DE5000E93185 /* UISSBarMetricsValueConverter.h in Headers */,
 				E129E5E21563DE7B00E93185 /* UISSControlStateValueConverter.h in Headers */,
@@ -984,6 +997,7 @@
 				E123BA1E158A38FA004F8633 /* UISSAppearancePrivate.h in Headers */,
 				E1C67BD6158CCBD800E220BB /* UISSGeneratedCodeViewController.h in Headers */,
 				E1C08347158E334E007A88E6 /* UISSError.h in Headers */,
+				83CD32E41AB0442D002EF2CA /* UIColor+UISS.h in Headers */,
 				E1F35EB11593A3F20074389E /* UIView+UISS.h in Headers */,
 				E18C7C1F158F52B1000D45AC /* UISSErrorsViewController.h in Headers */,
 				E1914CAF158F99BB00E04977 /* UISSStyle.h in Headers */,
@@ -1191,6 +1205,7 @@
 				E1076BEB157F6B1A00886759 /* UISSStatusViewController.m in Sources */,
 				E145C8591584AF820087BB1B /* NSString+UISS.m in Sources */,
 				E145C8641584DCC70087BB1B /* UISSConfig.m in Sources */,
+				83CD32E11AB03957002EF2CA /* UIImage+UISS.m in Sources */,
 				E1C67BD7158CCBD800E220BB /* UISSGeneratedCodeViewController.m in Sources */,
 				E1C08348158E334E007A88E6 /* UISSError.m in Sources */,
 				E1F35EB21593A3F20074389E /* UIView+UISS.m in Sources */,
@@ -1207,6 +1222,7 @@
 				C8D2BF2ADDB11891AE3310FA /* UISSSettingDescriptor.m in Sources */,
 				C8D2BA99525048D454BCA45D /* UISS+GestureRecognizers.m in Sources */,
 				C8D2BCA04FA368B1EF9B6692 /* UISSTextAlignmentValueConverter.m in Sources */,
+				83CD32E51AB0442D002EF2CA /* UIColor+UISS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1220,7 +1236,7 @@
 				E146982615583E9B000F311F /* UISSDemoSecondViewController.m in Sources */,
 				E146982915583EE0000F311F /* UISSCustomView.m in Sources */,
 				E129E5CE1562F86100E93185 /* UISSCustomContainerView.m in Sources */,
-				C8D2B882971405B0DC662C1C /* UIColor+UISS.m in Sources */,
+				C8D2B882971405B0DC662C1C /* UIColor+UISSDemo.m in Sources */,
 				C8D2BA939890EB0161165E37 /* UIFont+UISS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1250,7 +1266,7 @@
 				E123BD64158BA83B004F8633 /* UISSTests.m in Sources */,
 				E19B54F415A82070005AFD13 /* UISSCodeGeneratorTests.m in Sources */,
 				C8D2B6D7D19B634D46ADF86E /* UISSControlStateValueConverterTests.m in Sources */,
-				C8D2BF8B489FC38682ED03F5 /* UIColor+UISS.m in Sources */,
+				C8D2BF8B489FC38682ED03F5 /* UIColor+UISSDemo.m in Sources */,
 				C8D2B403B49E791D1C7C7839 /* UIFont+UISS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,7 +4,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UIColor (UISS)
+@interface UIColor (UISSDemo)
 
 +(UIColor *)uissDemoColor;
 

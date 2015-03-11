@@ -20,6 +20,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.shouldProcessPatternImageConvert = YES;
         self.imageValueConverter = [[UISSImageValueConverter alloc] init];
         self.floatValueConverter = [[UISSFloatValueConverter alloc] init];
         self.floatValueConverter.precision = 3;
@@ -117,7 +118,7 @@
         return YES;
     };
 
-    if ([self colorFromPatternImageString:colorString colorHandler:colorHandler codeHandler:codeHandler]) {
+    if (self.shouldProcessPatternImageConvert && [self colorFromPatternImageString:colorString colorHandler:colorHandler codeHandler:codeHandler]) {
         return YES;
     };
 

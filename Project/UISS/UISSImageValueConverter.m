@@ -4,7 +4,10 @@
 
 #import "UISSImageValueConverter.h"
 #import "UISSEdgeInsetsValueConverter.h"
+#import "UISSColorValueConverter.h"
 #import "UISSArgument.h"
+#import "UIImage+UISS.h"
+#import "UIColor+UISS.h"
 
 @interface UISSImageValueConverter ()
 
@@ -18,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        self.edgeInsetsValueConverter= [[UISSEdgeInsetsValueConverter alloc] init];
+        self.edgeInsetsValueConverter = [[UISSEdgeInsetsValueConverter alloc] init];
     }
     return self;
 }
@@ -44,12 +47,32 @@
 - (BOOL)convertValue:(id)value imageHandler:(void (^)(UIImage *))imageHandler codeHandler:(void (^)(NSString *))codeHandler;
 {
     if ([value isKindOfClass:[NSString class]]) {
+        UISSColorValueConverter *colorValueConverter = [[UISSColorValueConverter alloc] init];
+        colorValueConverter.shouldProcessPatternImageConvert = NO;
+        
+        UIImage *image = [UIImage imageNamed:value];
+        
         if (imageHandler) {
-            imageHandler([UIImage imageNamed:value]);
+            if (image == nil) {
+                UIColor *color = [colorValueConverter convertValue:value];
+                if (color != nil) {
+                    image = [UIImage imageWithColor:color];
+                }
+            }
+            imageHandler(image);
         }
 
         if (codeHandler) {
-            codeHandler([NSString stringWithFormat:@"[UIImage imageNamed:@\"%@\"]", value]);
+            NSString *code = [NSString stringWithFormat:@"[UIImage imageNamed:@\"%@\"]", value];
+            if (image == nil) {
+                UIColor *color = [colorValueConverter convertValue:value];
+                if (color != nil) {
+                    NSArray *colorComponent = [color colorComponent];
+                    code = [NSString stringWithFormat:@"[UIImage imageWithRed:%lf green:%lf blue:%lf alpha:%lf]",
+                            [colorComponent[0] floatValue], [colorComponent[1] floatValue], [colorComponent[2] floatValue], [colorComponent[3] floatValue]];
+                }
+            }
+            codeHandler(code);
         }
 
         return YES;
