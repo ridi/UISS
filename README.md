@@ -342,6 +342,15 @@ Here are some examples and eqivalent values in _Objective-C_ code.
 | ```bookmark``` | ```UISearchBarIconBookmark``` |
 | ```resultsList``` | ```UISearchBarIconResultsList``` |
 
+#### UIKeyboardAppearance
+
+| JSON | Objective-C |
+-------|--------------
+| ```default``` | ```UIKeyboardAppearanceDefault``` |
+| ```dark``` | ```UIKeyboardAppearanceDark``` |
+| ```light``` | ```UIKeyboardAppearanceLight``` |
+| ```alert``` | ```UIKeyboardAppearanceAlert``` |
+
 ## Variables
 
 You can define variables that can be used in your UISS style. All variables shoud be defined under _Variables_ key in your style dictionary. To reference a variable prefix its name with _$_ sign.
