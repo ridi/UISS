@@ -37,7 +37,7 @@
 
 - (NSString *)argumentType;
 {
-    return [NSString stringWithCString:@encode(NSUInteger) encoding:NSUTF8StringEncoding];
+    return [NSString stringWithCString:@encode(NSInteger) encoding:NSUTF8StringEncoding];
 }
 
 @end
