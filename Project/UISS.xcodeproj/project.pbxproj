@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */; };
 		833FDA791AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */; };
+		83505E191AB126C0006DE070 /* UISSBarStyleValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */; };
+		83505E1A1AB126C0006DE070 /* UISSBarStyleValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */; };
 		83CD32E01AB03957002EF2CA /* UIImage+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */; };
 		83CD32E11AB03957002EF2CA /* UIImage+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */; };
 		83CD32E41AB0442D002EF2CA /* UIColor+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */; };
@@ -208,6 +210,8 @@
 /* Begin PBXFileReference section */
 		833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSKeyboardAppearanceValueConverter.h; sourceTree = "<group>"; };
 		833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSKeyboardAppearanceValueConverter.m; sourceTree = "<group>"; };
+		83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSBarStyleValueConverter.h; sourceTree = "<group>"; };
+		83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSBarStyleValueConverter.m; sourceTree = "<group>"; };
 		83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UISS.h"; sourceTree = "<group>"; };
 		83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UISS.m"; sourceTree = "<group>"; };
 		83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UISS.h"; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 				C8D2B46579BB4A74DA7B5D27 /* UISSTextAlignmentValueConverter.m */,
 				833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */,
 				833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */,
+				83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */,
+				83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */,
 			);
 			name = "UIKit Enums";
 			sourceTree = "<group>";
@@ -992,6 +998,7 @@
 				E1076BEA157F6B1A00886759 /* UISSStatusViewController.h in Headers */,
 				E145C8581584AF820087BB1B /* NSString+UISS.h in Headers */,
 				833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */,
+				83505E191AB126C0006DE070 /* UISSBarStyleValueConverter.h in Headers */,
 				E145C8631584DCC70087BB1B /* UISSConfig.h in Headers */,
 				E13B646615890CC800E3613B /* UISSArgumentValueConverter.h in Headers */,
 				E123BA1E158A38FA004F8633 /* UISSAppearancePrivate.h in Headers */,
@@ -1186,6 +1193,7 @@
 				E12DA0CE155ABCF40066CCC3 /* UISSPointValueConverter.m in Sources */,
 				E12DA0D6155ABE500066CCC3 /* UISSIntegerValueConverter.m in Sources */,
 				E12DA0DA155ABE5E0066CCC3 /* UISSFloatValueConverter.m in Sources */,
+				83505E1A1AB126C0006DE070 /* UISSBarStyleValueConverter.m in Sources */,
 				E1F48246156259FE00CFA72E /* UISSUIntegerValueConverter.m in Sources */,
 				E129E5DF1563DE5000E93185 /* UISSBarMetricsValueConverter.m in Sources */,
 				E129E5E31563DE7B00E93185 /* UISSControlStateValueConverter.m in Sources */,

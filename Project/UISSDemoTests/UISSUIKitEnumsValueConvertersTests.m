@@ -11,6 +11,7 @@
 #import "UISSTextAlignmentValueConverter.h"
 #import "UISSImageResizingModeValueConverter.h"
 #import "UISSKeyboardAppearanceValueConverter.h"
+#import "UISSBarStyleValueConverter.h"
 
 @interface UISSUIKitEnumsValueConvertersTests : SenTestCase
 
@@ -88,6 +89,15 @@
     STAssertEquals([[converter convertValue:@"dark"] integerValue], UIKeyboardAppearanceDark, nil);
     STAssertEquals([[converter convertValue:@"light"] integerValue], UIKeyboardAppearanceLight, nil);
     STAssertEquals([[converter convertValue:@"alert"] integerValue], UIKeyboardAppearanceAlert, nil);
+    
+    STAssertNil([converter convertValue:@"dummy"], nil);
+}
+
+- (void)testBarStyle {
+    UISSBarStyleValueConverter *converter = [[UISSBarStyleValueConverter alloc] init];
+    
+    STAssertEquals([[converter convertValue:@"default"] integerValue], UIBarStyleDefault, nil);
+    STAssertEquals([[converter convertValue:@"black"] integerValue], UIBarStyleBlack, nil);
     
     STAssertNil([converter convertValue:@"dummy"], nil);
 }
