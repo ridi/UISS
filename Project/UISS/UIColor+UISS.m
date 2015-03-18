@@ -13,7 +13,7 @@
 - (NSArray *)colorComponent {
     CGFloat red = 0, blue = 0, green = 0, alpha = 0;
     
-    if (![self getRed:&red green:&blue blue:&green alpha:&alpha]) {
+    if (![self getRed:&red green:&green blue:&blue alpha:&alpha]) {
         CGFloat white = 0;
         if ([self getWhite:&white alpha:&alpha]) {
             if (red > 0) {

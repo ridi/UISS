@@ -13,4 +13,6 @@
 + (UIImage *)imageWithColor:(UIColor *)color;
 + (UIImage *)imageWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 
+- (UIImage *)imageByApplyingAlpha:(CGFloat)alpha;
+
 @end

@@ -31,17 +31,41 @@
     return [argument.type hasPrefix:@"@"] && [[argument.name lowercaseString] hasSuffix:@"image"];
 }
 
-- (id)edgeInsetsValueFromImageArray:(NSArray *)array;
+- (id)edgeInsetsValueFromImageArray:(NSArray *)array
 {
     id edgeInsetsValue;
-
-    if (array.count == 2) {
-        edgeInsetsValue = [array objectAtIndex:1];
-    } else {
-        edgeInsetsValue = [array subarrayWithRange:NSMakeRange(1, array.count - 1)];
+    
+    NSMutableArray *values = [NSMutableArray array];
+    for (id value in array) {
+        if ([value isKindOfClass:[NSArray class]]) {
+            edgeInsetsValue = value;
+            break;
+        } else if ([value isKindOfClass:[NSValue class]]) {
+            [values addObject:value];
+        }
+    }
+    
+    if (edgeInsetsValue == nil && values.count > 3) {
+        edgeInsetsValue = [values subarrayWithRange:NSMakeRange(0, 4)];
     }
 
     return edgeInsetsValue;
+}
+
+- (id)alphaValueFromImageArray:(NSArray *)array
+{
+    NSMutableArray *values = [NSMutableArray array];
+    for (id value in array) {
+        if ([value isKindOfClass:[NSValue class]]) {
+            [values addObject:value];
+        }
+    }
+    
+    if (values > 0) {
+        return [values lastObject];
+    } else {
+        return nil;
+    }
 }
 
 - (BOOL)convertValue:(id)value imageHandler:(void (^)(UIImage *))imageHandler codeHandler:(void (^)(NSString *))codeHandler;
@@ -50,9 +74,8 @@
         UISSColorValueConverter *colorValueConverter = [[UISSColorValueConverter alloc] init];
         colorValueConverter.shouldProcessPatternImageConvert = NO;
         
-        UIImage *image = [UIImage imageNamed:value];
-        
         if (imageHandler) {
+            UIImage *image = [UIImage imageNamed:value];
             if (image == nil) {
                 UIColor *color = [colorValueConverter convertValue:value];
                 if (color != nil) {
@@ -63,6 +86,7 @@
         }
 
         if (codeHandler) {
+            UIImage *image = [UIImage imageNamed:value];
             NSString *code = [NSString stringWithFormat:@"[UIImage imageNamed:@\"%@\"]", value];
             if (image == nil) {
                 UIColor *color = [colorValueConverter convertValue:value];
@@ -83,9 +107,15 @@
                 imageHandler:^(UIImage *image) {
                     if (imageHandler) {
                         if (image && array.count > 1) {
+                            id alphaValue = [self alphaValueFromImageArray:array];
+                            
+                            if (alphaValue) {
+                                image = [image imageByApplyingAlpha:[alphaValue floatValue]];
+                            }
+                            
                             id edgeInsetsValue = [self edgeInsetsValueFromImageArray:array];
                             id edgeInsetsConverted  = [self.edgeInsetsValueConverter convertValue:edgeInsetsValue];
-
+                            
                             if (edgeInsetsConverted) {
                                 UIEdgeInsets edgeInsets = [edgeInsetsConverted UIEdgeInsetsValue];
                                 image = [image resizableImageWithCapInsets:edgeInsets];
@@ -98,6 +128,13 @@
                 codeHandler:^(NSString *code) {
                     if (codeHandler) {
                         if (code && array.count > 1) {
+                            id alphaValue = [self alphaValueFromImageArray:array];
+                            
+                            if (alphaValue) {
+                                code = [code stringByReplacingCharactersInRange:[code rangeOfString:@"alpha:.*]" options:NSRegularExpressionSearch]
+                                                                     withString:[NSString stringWithFormat:@"alpha:%lf]", [alphaValue floatValue]]];
+                            }
+                            
                             id edgeInsetsValue = [self edgeInsetsValueFromImageArray:array];
                             id edgeInsetsCode = [self.edgeInsetsValueConverter generateCodeForValue:edgeInsetsValue];
 
