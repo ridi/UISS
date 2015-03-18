@@ -56,12 +56,19 @@
 
         unsigned long long hexValue;
         if ([scanner scanHexLongLong:&hexValue]) {
-            CGFloat red = ((hexValue & 0xFF0000) >> 16) / 255.0f;
-            CGFloat green = ((hexValue & 0x00FF00) >> 8) / 255.0f;
-            CGFloat blue = (hexValue & 0x0000FF) / 255.0f;
-
-            return [self colorWithRed:red green:green blue:blue alpha:1.0 colorHandler:colorHandler
-                          codeHandler:codeHandler];
+            NSUInteger length = scanner.string.length;
+            if (length == 6) {
+                CGFloat red = ((hexValue & 0xFF0000) >> 16) / 255.0f;
+                CGFloat green = ((hexValue & 0x00FF00) >> 8) / 255.0f;
+                CGFloat blue = (hexValue & 0x0000FF) / 255.0f;
+                return [self colorWithRed:red green:green blue:blue alpha:1.0 colorHandler:colorHandler codeHandler:codeHandler];
+            } else if (length == 8) {
+                CGFloat red = ((hexValue & 0xFF000000) >> 24) / 255.0f;
+                CGFloat green = ((hexValue & 0x00FF0000) >> 16) / 255.0f;
+                CGFloat blue = ((hexValue & 0x0000FF00) >> 8) / 255.0f;
+                CGFloat alpha = (hexValue & 0x000000FF) / 255.0f;
+                return [self colorWithRed:red green:green blue:blue alpha:alpha colorHandler:colorHandler codeHandler:codeHandler];
+            }
         }
     }
 
