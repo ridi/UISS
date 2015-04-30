@@ -75,11 +75,31 @@
     STAssertNotNil(image, nil);
 }
 
-- (void)setUp; {
+- (void)testImageRenderingMode {
+    UIImage *image = [self.converter convertValue:@[@"blueColor", @"Automatic"]];
+    STAssertNotNil(image, nil);
+    
+    NSString *code = [self.converter generateCodeForValue:@[@"blueColor", @"template"]];
+    STAssertEqualObjects(code, @"[[UIImage imageWithRed:0.000000 green:0.000000 blue:1.000000 alpha:1.000000] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]", nil);
+    
+    image = [self.converter convertValue:@[@"#FF0000", @1, @2, @3, @4, @0.1, @"template"]];
+    STAssertEquals(image.capInsets, UIEdgeInsetsMake(1, 2, 3, 4), nil);
+    STAssertEquals(image.renderingMode, UIImageRenderingModeAlwaysTemplate, nil);
+    STAssertNotNil(image, nil);
+    
+    image = [self.converter convertValue:@[@"#FF0000", @1, @2, @3, @4, @"original"]];
+    STAssertEquals(image.renderingMode, UIImageRenderingModeAlwaysOriginal, nil);
+    STAssertNotNil(image, nil);
+    
+    code = [self.converter generateCodeForValue:@[@"background", @1, @2, @3, @4, @"template"]];
+    STAssertEqualObjects(code, @"[[[UIImage imageNamed:@\"background\"] resizableImageWithCapInsets:UIEdgeInsetsMake(1.0, 2.0, 3.0, 4.0)] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]", nil);
+}
+
+- (void)setUp {
     self.converter = [[UISSImageValueConverter alloc] init];
 }
 
-- (void)tearDown; {
+- (void)tearDown {
     self.converter = nil;
 }
 

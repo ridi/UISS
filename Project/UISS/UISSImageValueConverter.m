@@ -5,6 +5,7 @@
 #import "UISSImageValueConverter.h"
 #import "UISSEdgeInsetsValueConverter.h"
 #import "UISSColorValueConverter.h"
+#import "UISSImageRenderingModeConverter.h"
 #import "UISSArgument.h"
 #import "UIImage+UISS.h"
 #import "UIColor+UISS.h"
@@ -12,6 +13,7 @@
 @interface UISSImageValueConverter ()
 
 @property (nonatomic, strong) UISSEdgeInsetsValueConverter *edgeInsetsValueConverter;
+@property (nonatomic, strong) UISSImageRenderingModeConverter *imageRenderingModeConverter;
 
 @end
 
@@ -22,6 +24,7 @@
     self = [super init];
     if (self) {
         self.edgeInsetsValueConverter = [[UISSEdgeInsetsValueConverter alloc] init];
+        self.imageRenderingModeConverter = [[UISSImageRenderingModeConverter alloc] init];
     }
     return self;
 }
@@ -61,11 +64,22 @@
         }
     }
     
-    if (values > 0) {
+    if (values.count == 1 || values.count == 5) {
         return [values lastObject];
     } else {
         return nil;
     }
+}
+
+- (NSString *)modeValueFromImageArray:(NSArray *)array
+{
+    for (NSInteger i = 1; i < array.count; i++) {
+        id value = array[i];
+        if ([value isKindOfClass:[NSString class]]) {
+            return value;
+        }
+    }
+    return nil;
 }
 
 - (BOOL)convertValue:(id)value imageHandler:(void (^)(UIImage *))imageHandler codeHandler:(void (^)(NSString *))codeHandler;
@@ -116,9 +130,14 @@
                             id edgeInsetsValue = [self edgeInsetsValueFromImageArray:array];
                             id edgeInsetsConverted  = [self.edgeInsetsValueConverter convertValue:edgeInsetsValue];
                             
-                            if (edgeInsetsConverted) {
+                            if (edgeInsetsValue) {
                                 UIEdgeInsets edgeInsets = [edgeInsetsConverted UIEdgeInsetsValue];
                                 image = [image resizableImageWithCapInsets:edgeInsets];
+                            }
+                            
+                            NSString *modeValue = [self modeValueFromImageArray:array];
+                            if (modeValue) {
+                                image = [image imageWithRenderingMode:[[self.imageRenderingModeConverter convertValue:modeValue] integerValue]];
                             }
 
                             imageHandler(image);
@@ -138,9 +157,13 @@
                             id edgeInsetsValue = [self edgeInsetsValueFromImageArray:array];
                             id edgeInsetsCode = [self.edgeInsetsValueConverter generateCodeForValue:edgeInsetsValue];
 
-                            if (edgeInsetsCode) {
-                                code = [NSString stringWithFormat:@"[%@ resizableImageWithCapInsets:%@]", code,
-                                                                  edgeInsetsCode];
+                            if (edgeInsetsValue) {
+                                code = [NSString stringWithFormat:@"[%@ resizableImageWithCapInsets:%@]", code, edgeInsetsCode];
+                            }
+                            
+                            NSString *modeValue = [self modeValueFromImageArray:array];
+                            if (modeValue) {
+                                code = [NSString stringWithFormat:@"[%@ imageWithRenderingMode:%@]", code, [self.imageRenderingModeConverter generateCodeForValue:modeValue]];
                             }
 
                             codeHandler(code);
