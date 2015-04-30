@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		833FDA781AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */; };
 		833FDA791AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */; };
+		834C60781AF21CFF0061D33F /* UISSImageRenderingModeConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 834C60761AF21CFF0061D33F /* UISSImageRenderingModeConverter.h */; };
+		834C60791AF21CFF0061D33F /* UISSImageRenderingModeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 834C60771AF21CFF0061D33F /* UISSImageRenderingModeConverter.m */; };
 		83505E191AB126C0006DE070 /* UISSBarStyleValueConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */; };
 		83505E1A1AB126C0006DE070 /* UISSBarStyleValueConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */; };
 		83CD32E01AB03957002EF2CA /* UIImage+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */; };
@@ -210,6 +212,8 @@
 /* Begin PBXFileReference section */
 		833FDA761AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSKeyboardAppearanceValueConverter.h; sourceTree = "<group>"; };
 		833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSKeyboardAppearanceValueConverter.m; sourceTree = "<group>"; };
+		834C60761AF21CFF0061D33F /* UISSImageRenderingModeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSImageRenderingModeConverter.h; sourceTree = "<group>"; };
+		834C60771AF21CFF0061D33F /* UISSImageRenderingModeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSImageRenderingModeConverter.m; sourceTree = "<group>"; };
 		83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSBarStyleValueConverter.h; sourceTree = "<group>"; };
 		83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSBarStyleValueConverter.m; sourceTree = "<group>"; };
 		83CD32DE1AB03957002EF2CA /* UIImage+UISS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UISS.h"; sourceTree = "<group>"; };
@@ -550,6 +554,8 @@
 				833FDA771AB017A800777B38 /* UISSKeyboardAppearanceValueConverter.m */,
 				83505E171AB126C0006DE070 /* UISSBarStyleValueConverter.h */,
 				83505E181AB126C0006DE070 /* UISSBarStyleValueConverter.m */,
+				834C60761AF21CFF0061D33F /* UISSImageRenderingModeConverter.h */,
+				834C60771AF21CFF0061D33F /* UISSImageRenderingModeConverter.m */,
 			);
 			name = "UIKit Enums";
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				E129E5DE1563DE5000E93185 /* UISSBarMetricsValueConverter.h in Headers */,
 				E129E5E21563DE7B00E93185 /* UISSControlStateValueConverter.h in Headers */,
 				E129E5E61563DEB700E93185 /* UISSSegmentedControlSegmentValueConverter.h in Headers */,
+				834C60781AF21CFF0061D33F /* UISSImageRenderingModeConverter.h in Headers */,
 				E129E5EE1563F54800E93185 /* UISSAbstractEnumValueConverter.h in Headers */,
 				E1A7739815668F80000406CC /* UILabel+UISS.h in Headers */,
 				E1A775B21566E8D6000406CC /* UISSToolbarPositionValueConverter.h in Headers */,
@@ -1077,7 +1084,7 @@
 			name = UISSDemoTests;
 			productName = UISSDemoTests;
 			productReference = E1ED8C0B1450D4E200302B61 /* UISSDemoTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1230,6 +1237,7 @@
 				C8D2BF2ADDB11891AE3310FA /* UISSSettingDescriptor.m in Sources */,
 				C8D2BA99525048D454BCA45D /* UISS+GestureRecognizers.m in Sources */,
 				C8D2BCA04FA368B1EF9B6692 /* UISSTextAlignmentValueConverter.m in Sources */,
+				834C60791AF21CFF0061D33F /* UISSImageRenderingModeConverter.m in Sources */,
 				83CD32E51AB0442D002EF2CA /* UIColor+UISS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
