@@ -16,7 +16,7 @@
 @implementation UISSPropertySetter
 
 - (NSString *)selectorRegexp {
-    NSMutableString *regexp = [NSMutableString stringWithFormat:@"^set%@:",
+    NSMutableString *regexp = [NSMutableString stringWithFormat:@"set%@:",
                                                                 [self.property.name uppercaseFirstCharacterString]];
 
     for (NSUInteger i = 0; i < self.axisParameters.count; i++) {
@@ -26,7 +26,7 @@
         [regexp appendString:@"\\w+:"];
     }
 
-    [regexp appendString:@"$"];
+    [regexp appendString:@"\n"];
 
     return regexp;
 }
@@ -64,26 +64,56 @@
     return _methodSignature;
 }
 
++ (NSMutableDictionary *)methodListCache {
+    static NSMutableDictionary *cache;
+    if (cache == nil) {
+        cache = [NSMutableDictionary dictionary];
+    }
+    return cache;
+}
+
++ (void)invalidateMethodListCache {
+    [[UISSPropertySetter methodListCache] removeAllObjects];
+}
+
 - (SEL)findSelectorMatchingRegexp:(NSString *)regexp class:(Class <UIAppearance>)class currentBestSelector:(SEL)currentBestSelector {
-    unsigned int count = 0;
-    Method *methods = class_copyMethodList(class, &count);
-
-    for (int i = 0; i < count; i++) {
-        SEL selector = method_getName(methods[i]);
-        NSString *selectorString = NSStringFromSelector(selector);
-
-        if ([selectorString rangeOfString:regexp options:NSRegularExpressionSearch].location != NSNotFound) {
+    NSMutableDictionary *cache = [UISSPropertySetter methodListCache];
+    NSString *className = NSStringFromClass(class);
+    NSString *methodListString = [cache objectForKey:className];
+    if (methodListString == nil) {
+        unsigned int count = 0;
+        Method *methods = class_copyMethodList(class, &count);
+        
+        NSMutableString *string = [NSMutableString string];
+        for (int i = 0; i < count; i++) {
+            SEL selector = method_getName(methods[i]);
+            [string appendFormat:@"%@\n", NSStringFromSelector(selector)];
+        }
+        free(methods);
+        
+        [cache setObject:string forKey:className];
+        methodListString = string;
+    }
+    
+    NSUInteger length = methodListString.length;
+    NSRange searchRange = NSMakeRange(0, length);
+    while (searchRange.location < length) {
+        searchRange.length = length - searchRange.location;
+        NSRange foundRange = [methodListString rangeOfString:regexp options:NSRegularExpressionSearch range:searchRange];
+        if (foundRange.location != NSNotFound) {
             // this favours selector with shorter label
             // the purpose of this is to pick forState: instead of forStates:
-
+            NSString *selectorString = [methodListString substringWithRange:NSMakeRange(foundRange.location, foundRange.length - 1)];
             if (currentBestSelector == NULL || NSStringFromSelector(currentBestSelector).length > selectorString.length) {
                 // found new shorter selector
-                currentBestSelector = selector;
+                currentBestSelector = NSSelectorFromString(selectorString);
             }
+            searchRange.location = foundRange.location + foundRange.length;
+        } else {
+            break;
         }
     }
-    free(methods);
-
+    
     Class superclass = class_getSuperclass(class);
     if ([superclass conformsToProtocol:@protocol(UIAppearance)]) {
         return [self findSelectorMatchingRegexp:regexp class:superclass currentBestSelector:currentBestSelector];
