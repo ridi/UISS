@@ -2,10 +2,10 @@
 // Copyright (c) 2013 Robert Wijas. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "UISSSizeValueConverter.h"
 
-@interface UISSSizeValueConverterTests : SenTestCase
+@interface UISSSizeValueConverterTests : XCTestCase
 
 @property(nonatomic, strong) UISSSizeValueConverter *converter;
 
@@ -33,10 +33,10 @@
 
 - (void)testValue:(id)value expectedSize:(CGSize)expectedSize expectedCode:(NSString *)expectedCode; {
     id converted = [self.converter convertValue:value];
-    STAssertEquals([converted CGSizeValue], expectedSize, nil);
+    XCTAssertTrue(CGSizeEqualToSize([converted CGSizeValue], expectedSize));
 
     NSString *code = [self.converter generateCodeForValue:value];
-    STAssertEqualObjects(code, expectedCode, nil);
+    XCTAssertEqualObjects(code, expectedCode);
 }
 
 @end

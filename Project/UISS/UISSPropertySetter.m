@@ -29,7 +29,7 @@
         [regexp appendString:@"\\w+:"];
     }
 
-    [regexp appendString:@"\n"];
+    [regexp appendString:@"$"];
 
     return regexp;
 }

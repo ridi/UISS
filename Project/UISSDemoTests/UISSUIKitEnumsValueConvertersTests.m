@@ -2,7 +2,7 @@
 // Copyright (c) 2013 Robert Wijas. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "UISSBarMetricsValueConverter.h"
 #import "UISSControlStateValueConverter.h"
 #import "UISSSegmentedControlSegmentValueConverter.h"
@@ -13,7 +13,7 @@
 #import "UISSKeyboardAppearanceValueConverter.h"
 #import "UISSBarStyleValueConverter.h"
 
-@interface UISSUIKitEnumsValueConvertersTests : SenTestCase
+@interface UISSUIKitEnumsValueConvertersTests : XCTestCase
 
 @end
 
@@ -22,84 +22,84 @@
 - (void)testBarMetrics {
     UISSBarMetricsValueConverter *converter = [[UISSBarMetricsValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"default"] integerValue], UIBarMetricsDefault, nil);
-    STAssertEquals([[converter convertValue:@"landscapePhone"] integerValue], UIBarMetricsLandscapePhone, nil);
+    XCTAssertEqual([[converter convertValue:@"default"] integerValue], UIBarMetricsDefault);
+    XCTAssertEqual([[converter convertValue:@"landscapePhone"] integerValue], UIBarMetricsLandscapePhone);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testResizingMode {
     UISSImageResizingModeValueConverter *converter = [[UISSImageResizingModeValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"stretch"] integerValue], UIImageResizingModeStretch, nil);
-    STAssertEquals([[converter convertValue:@"tile"] integerValue], UIImageResizingModeTile, nil);
+    XCTAssertEqual([[converter convertValue:@"stretch"] integerValue], UIImageResizingModeStretch);
+    XCTAssertEqual([[converter convertValue:@"tile"] integerValue], UIImageResizingModeTile);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testSearchBarIcon {
     UISSSearchBarIconValueConverter *converter = [[UISSSearchBarIconValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"search"] integerValue], UISearchBarIconSearch, nil);
-    STAssertEquals([[converter convertValue:@"clear"] integerValue], UISearchBarIconClear, nil);
-    STAssertEquals([[converter convertValue:@"bookmark"] integerValue], UISearchBarIconBookmark, nil);
-    STAssertEquals([[converter convertValue:@"resultsList"] integerValue], UISearchBarIconResultsList, nil);
+    XCTAssertEqual([[converter convertValue:@"search"] integerValue], UISearchBarIconSearch);
+    XCTAssertEqual([[converter convertValue:@"clear"] integerValue], UISearchBarIconClear);
+    XCTAssertEqual([[converter convertValue:@"bookmark"] integerValue], UISearchBarIconBookmark);
+    XCTAssertEqual([[converter convertValue:@"resultsList"] integerValue], UISearchBarIconResultsList);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testSegmentedControlSegment {
     UISSSegmentedControlSegmentValueConverter *converter = [[UISSSegmentedControlSegmentValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"any"] integerValue], UISegmentedControlSegmentAny, nil);
-    STAssertEquals([[converter convertValue:@"left"] integerValue], UISegmentedControlSegmentLeft, nil);
-    STAssertEquals([[converter convertValue:@"center"] integerValue], UISegmentedControlSegmentCenter, nil);
-    STAssertEquals([[converter convertValue:@"right"] integerValue], UISegmentedControlSegmentRight, nil);
-    STAssertEquals([[converter convertValue:@"alone"] integerValue], UISegmentedControlSegmentAlone, nil);
+    XCTAssertEqual([[converter convertValue:@"any"] integerValue], UISegmentedControlSegmentAny);
+    XCTAssertEqual([[converter convertValue:@"left"] integerValue], UISegmentedControlSegmentLeft);
+    XCTAssertEqual([[converter convertValue:@"center"] integerValue], UISegmentedControlSegmentCenter);
+    XCTAssertEqual([[converter convertValue:@"right"] integerValue], UISegmentedControlSegmentRight);
+    XCTAssertEqual([[converter convertValue:@"alone"] integerValue], UISegmentedControlSegmentAlone);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testTextAlignment {
     UISSTextAlignmentValueConverter *converter = [[UISSTextAlignmentValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"center"] integerValue], NSTextAlignmentCenter, nil);
-    STAssertEquals([[converter convertValue:@"justified"] integerValue], NSTextAlignmentJustified, nil);
-    STAssertEquals([[converter convertValue:@"left"] integerValue], NSTextAlignmentLeft, nil);
-    STAssertEquals([[converter convertValue:@"natural"] integerValue], NSTextAlignmentNatural, nil);
-    STAssertEquals([[converter convertValue:@"right"] integerValue], NSTextAlignmentRight, nil);
+    XCTAssertEqual([[converter convertValue:@"center"] integerValue], NSTextAlignmentCenter);
+    XCTAssertEqual([[converter convertValue:@"justified"] integerValue], NSTextAlignmentJustified);
+    XCTAssertEqual([[converter convertValue:@"left"] integerValue], NSTextAlignmentLeft);
+    XCTAssertEqual([[converter convertValue:@"natural"] integerValue], NSTextAlignmentNatural);
+    XCTAssertEqual([[converter convertValue:@"right"] integerValue], NSTextAlignmentRight);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testToolbarPosition {
     UISSToolbarPositionValueConverter *converter = [[UISSToolbarPositionValueConverter alloc] init];
 
-    STAssertEquals([[converter convertValue:@"any"] integerValue], UIToolbarPositionAny, nil);
-    STAssertEquals([[converter convertValue:@"bottom"] integerValue], UIToolbarPositionBottom, nil);
-    STAssertEquals([[converter convertValue:@"top"] integerValue], UIToolbarPositionTop, nil);
+    XCTAssertEqual([[converter convertValue:@"any"] integerValue], UIToolbarPositionAny);
+    XCTAssertEqual([[converter convertValue:@"bottom"] integerValue], UIToolbarPositionBottom);
+    XCTAssertEqual([[converter convertValue:@"top"] integerValue], UIToolbarPositionTop);
 
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testKeyboardAppearance {
     UISSKeyboardAppearanceValueConverter *converter = [[UISSKeyboardAppearanceValueConverter alloc] init];
     
-    STAssertEquals([[converter convertValue:@"default"] integerValue], UIKeyboardAppearanceDefault, nil);
-    STAssertEquals([[converter convertValue:@"dark"] integerValue], UIKeyboardAppearanceDark, nil);
-    STAssertEquals([[converter convertValue:@"light"] integerValue], UIKeyboardAppearanceLight, nil);
-    STAssertEquals([[converter convertValue:@"alert"] integerValue], UIKeyboardAppearanceAlert, nil);
+    XCTAssertEqual([[converter convertValue:@"default"] integerValue], UIKeyboardAppearanceDefault);
+    XCTAssertEqual([[converter convertValue:@"dark"] integerValue], UIKeyboardAppearanceDark);
+    XCTAssertEqual([[converter convertValue:@"light"] integerValue], UIKeyboardAppearanceLight);
+    XCTAssertEqual([[converter convertValue:@"alert"] integerValue], UIKeyboardAppearanceAlert);
     
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 - (void)testBarStyle {
     UISSBarStyleValueConverter *converter = [[UISSBarStyleValueConverter alloc] init];
     
-    STAssertEquals([[converter convertValue:@"default"] integerValue], UIBarStyleDefault, nil);
-    STAssertEquals([[converter convertValue:@"black"] integerValue], UIBarStyleBlack, nil);
+    XCTAssertEqual([[converter convertValue:@"default"] integerValue], UIBarStyleDefault);
+    XCTAssertEqual([[converter convertValue:@"black"] integerValue], UIBarStyleBlack);
     
-    STAssertNil([converter convertValue:@"dummy"], nil);
+    XCTAssertNil([converter convertValue:@"dummy"]);
 }
 
 @end
