@@ -20,8 +20,8 @@
     self = [super init];
     if (self) {
         self.stringToValueDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithUnsignedInteger:UIBarStyleDefault], @"default",
-                                        [NSNumber numberWithUnsignedInteger:UIBarStyleBlack], @"black",
+                                        [NSNumber numberWithInteger:UIBarStyleDefault], @"default",
+                                        [NSNumber numberWithInteger:UIBarStyleBlack], @"black",
                                         nil];
         self.stringToCodeDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"UIBarStyleDefault", @"default",

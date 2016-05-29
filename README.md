@@ -211,6 +211,30 @@ Here are some examples and eqivalent values in _Objective-C_ code.
 [[UIImage imageNamed:@"imageName"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 2, 3, 4)]
 ````
 
+#### Image with color:
+
+```json
+"greenColor"
+```
+```objc
+[UIImage imageWithRed:0.000000 green:0.000000 blue:1.000000 alpha:1.000000]
+````
+
+```json
+"#D9F321"
+```
+```objc
+[UIImage imageWithRed:0.850980 green:0.129412 blue:0.952941 alpha:1.000000]
+````
+
+#### Image with rendering mode:
+```json
+["imageName", "template"]
+```
+```objc
+[[UIImage imageNamed:@\"background\"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+````
+
 ### Fonts
 
 ```json
@@ -265,7 +289,6 @@ Here are some examples and eqivalent values in _Objective-C_ code.
 | ```1``` | ```CGSizeMake(1, 1)``` |
 | ```[1]``` | ```CGSizeMake(1, 1)``` |
 | ```[1, 2]``` | ```CGSizeMake(1, 2)``` |
-
 
 #### CGRect
 
@@ -350,6 +373,14 @@ Here are some examples and eqivalent values in _Objective-C_ code.
 | ```dark``` | ```UIKeyboardAppearanceDark``` |
 | ```light``` | ```UIKeyboardAppearanceLight``` |
 | ```alert``` | ```UIKeyboardAppearanceAlert``` |
+
+#### UIImageRenderingMode
+
+| JSON | Objective-C |
+-------|--------------
+| ```automatic``` | ```UIImageRenderingModeAutomatic``` |
+| ```original``` | ```UIImageRenderingModeAlwaysOriginal``` |
+| ```template``` | ```UIImageRenderingModeAlwaysTemplate``` |
 
 ## Variables
 
