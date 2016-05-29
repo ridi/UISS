@@ -15,9 +15,12 @@
 
 @implementation UISSPropertySetter
 
+- (NSString *)selectorPrefix {
+    return [NSString stringWithFormat:@"set%@:", [self.property.name uppercaseFirstCharacterString]];
+}
+
 - (NSString *)selectorRegexp {
-    NSMutableString *regexp = [NSMutableString stringWithFormat:@"set%@:",
-                                                                [self.property.name uppercaseFirstCharacterString]];
+    NSMutableString *regexp = [NSMutableString stringWithFormat:@"^%@", self.selectorPrefix];
 
     for (NSUInteger i = 0; i < self.axisParameters.count; i++) {
         if (i == 0) {
@@ -79,38 +82,37 @@
 - (SEL)findSelectorMatchingRegexp:(NSString *)regexp class:(Class <UIAppearance>)class currentBestSelector:(SEL)currentBestSelector {
     NSMutableDictionary *cache = [UISSPropertySetter methodListCache];
     NSString *className = NSStringFromClass(class);
-    NSString *methodListString = [cache objectForKey:className];
-    if (methodListString == nil) {
+    NSArray *methodList = [cache objectForKey:className];
+    if (methodList == nil) {
         unsigned int count = 0;
         Method *methods = class_copyMethodList(class, &count);
         
-        NSMutableString *string = [NSMutableString string];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
         for (int i = 0; i < count; i++) {
             SEL selector = method_getName(methods[i]);
-            [string appendFormat:@"%@\n", NSStringFromSelector(selector)];
+            [array addObject:NSStringFromSelector(selector)];
         }
         free(methods);
         
-        [cache setObject:string forKey:className];
-        methodListString = string;
+        [cache setObject:array forKey:className];
+        methodList = array;
     }
     
-    NSUInteger length = methodListString.length;
-    NSRange searchRange = NSMakeRange(0, length);
-    while (searchRange.location < length) {
-        searchRange.length = length - searchRange.location;
-        NSRange foundRange = [methodListString rangeOfString:regexp options:NSRegularExpressionSearch range:searchRange];
-        if (foundRange.location != NSNotFound) {
-            // this favours selector with shorter label
-            // the purpose of this is to pick forState: instead of forStates:
-            NSString *selectorString = [methodListString substringWithRange:NSMakeRange(foundRange.location, foundRange.length - 1)];
-            if (currentBestSelector == NULL || NSStringFromSelector(currentBestSelector).length > selectorString.length) {
-                // found new shorter selector
-                currentBestSelector = NSSelectorFromString(selectorString);
+    NSString *selectorPrefix = self.selectorPrefix;
+    
+    for (NSInteger i = 0; i < methodList.count; i++) {
+        NSString *selectorString = methodList[i];
+        
+        if ([selectorString hasPrefix:selectorPrefix]) { // reducing the use of regular expression for performance reasons
+            if ([selectorString rangeOfString:regexp options:NSRegularExpressionSearch].location != NSNotFound) {
+                // this favours selector with shorter label
+                // the purpose of this is to pick forState: instead of forStates:
+                
+                if (currentBestSelector == NULL || NSStringFromSelector(currentBestSelector).length > selectorString.length) {
+                    // found new shorter selector
+                    currentBestSelector = NSSelectorFromString(selectorString);
+                }
             }
-            searchRange.location = foundRange.location + foundRange.length;
-        } else {
-            break;
         }
     }
     
@@ -263,25 +265,25 @@
         case 1:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         case 2:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:1],
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         case 3:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:2],
                                                  [self.containment objectAtIndex:1],
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         case 4:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:3],
                                                  [self.containment objectAtIndex:2],
                                                  [self.containment objectAtIndex:1],
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         case 5:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:4],
@@ -289,7 +291,7 @@
                                                  [self.containment objectAtIndex:2],
                                                  [self.containment objectAtIndex:1],
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         case 6:
             return [self.appearanceClass appearanceWhenContainedIn:
                                                  [self.containment objectAtIndex:5],
@@ -298,7 +300,7 @@
                                                  [self.containment objectAtIndex:2],
                                                  [self.containment objectAtIndex:1],
                                                  [self.containment objectAtIndex:0],
-                                                 nil];
+                                         nil];
         default:
             return nil;
     }

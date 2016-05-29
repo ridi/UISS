@@ -1092,6 +1092,7 @@
 		E1B438A6143F667F00F87518 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0700;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = 57things;
 			};
@@ -1432,6 +1433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISSDemo/UISSDemo-Prefix.pch";
 				INFOPLIST_FILE = "UISSDemo/UISSDemo-Info.plist";
@@ -1445,6 +1447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISSDemo/UISSDemo-Prefix.pch";
 				INFOPLIST_FILE = "UISSDemo/UISSDemo-Info.plist";
