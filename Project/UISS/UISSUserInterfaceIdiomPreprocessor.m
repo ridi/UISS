@@ -6,6 +6,10 @@
 
 @implementation UISSUserInterfaceIdiomPreprocessor
 
+- (NSString *)prefix {
+    return @"";
+}
+
 - (id)preprocessValueIfNecessary:(id)value userInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom;
 {
     if ([value isKindOfClass:[NSDictionary class]]) {

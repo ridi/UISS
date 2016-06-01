@@ -20,12 +20,13 @@
 #import "UISSSegmentedControlSegmentValueConverter.h"
 #import "UISSToolbarPositionValueConverter.h"
 #import "UISSSearchBarIconValueConverter.h"
-#import "UISSUserInterfaceIdiomPreprocessor.h"
-#import "UISSVariablesPreprocessor.h"
-#import "UISSDisabledKeysPreprocessor.h"
 #import "UISSTextAlignmentValueConverter.h"
 #import "UISSKeyboardAppearanceValueConverter.h"
 #import "UISSBarStyleValueConverter.h"
+#import "UISSDisabledKeysPreprocessor.h"
+#import "UISSUserInterfaceIdiomPreprocessor.h"
+#import "UISSMediaQueryPreprocessor.h"
+#import "UISSVariablesPreprocessor.h"
 
 @implementation UISSConfig
 
@@ -85,6 +86,7 @@
     return [NSArray arrayWithObjects:
                             [[UISSDisabledKeysPreprocessor alloc] init],
                             [[UISSUserInterfaceIdiomPreprocessor alloc] init],
+                            [[UISSMediaQueryPreprocessor alloc] init],
                             [[UISSVariablesPreprocessor alloc] init],
                             nil];
 }

@@ -6,7 +6,6 @@
 #import "UISSDictionaryPreprocessor.h"
 
 #define UISS_DEFAULT_VARIABLES_KEY @"Variables"
-#define UISS_DEFAULT_VARIABLE_PREFIX @"$"
 
 @interface UISSVariablesPreprocessor : NSObject <UISSDictionaryPreprocessor>
 

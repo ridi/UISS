@@ -6,13 +6,8 @@
 
 @implementation UISSDisabledKeysPreprocessor
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.prefix = UISS_DISABLED_KEYS_PREPROCESSOR_DEFAULT_PREFIX;
-    }
-    return self;
+- (NSString *)prefix {
+    return @"-";
 }
 
 - (NSDictionary *)preprocess:(NSDictionary *)dictionary userInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom;

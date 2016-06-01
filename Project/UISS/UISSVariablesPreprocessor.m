@@ -8,7 +8,6 @@
 
 @property (nonatomic, strong) NSString *variablesKey;
 @property (nonatomic, strong) NSMutableDictionary *variables;
-@property (nonatomic, strong) NSString *variablePrefix;
 
 @end
 
@@ -22,15 +21,18 @@ typedef id (^ResolveBlock)(NSString *);
     if (self) {
         self.variablesKey = UISS_DEFAULT_VARIABLES_KEY;
         self.variables = [NSMutableDictionary dictionary];
-        self.variablePrefix = UISS_DEFAULT_VARIABLE_PREFIX;
     }
     return self;
 }
 
+- (NSString *)prefix {
+    return @"$";
+}
+
 - (NSString *)variableNameFromValue:(id)value;
 {
-    if ([value isKindOfClass:[NSString class]] && [value hasPrefix:self.variablePrefix]) {
-        return [value substringFromIndex:self.variablePrefix.length];
+    if ([value isKindOfClass:[NSString class]] && [value hasPrefix:self.prefix]) {
+        return [value substringFromIndex:self.prefix.length];
     } else {
         return nil;
     }

@@ -6,6 +6,8 @@
 
 @protocol UISSDictionaryPreprocessor <NSObject>
 
+@property (nonatomic, copy, readonly) NSString *prefix;
+
 - (NSDictionary *)preprocess:(NSDictionary *)dictionary userInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom;
 
 @end
