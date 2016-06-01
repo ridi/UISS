@@ -2,7 +2,6 @@
     "Variables": {
         "color": "yellowColor"
     },
-    "@import": "sub",
     "UIToolbar": {
         "tintColor": "$color",
         "backgroundImage:any:default": "black"
@@ -20,8 +19,5 @@
     "UITabBarItem": {
         "titlePositionAdjustment": [10, 10],
         "titleTextAttributes:normal": {"font":24}
-    },
-    "UITableView": {
-        "@import": "sub.json"
     }
 }

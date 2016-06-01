@@ -20,7 +20,7 @@
     self.uiss = [UISS configureWithJSONFilePath:jsonFilePath];
 }
 
-- (void)testGeneratedCodeForPad {
+- (void)testGeneratedCodeForPad; {
     [self.uiss generateCodeForUserInterfaceIdiom:UIUserInterfaceIdiomPad
                                      codeHandler:^(NSString *code, NSArray *errors) {
                                          XCTAssertTrue(errors.count == 0, @"errors are unexpected");
@@ -29,7 +29,7 @@
                                      }];
 }
 
-- (void)testGeneratedCodeForPhone {
+- (void)testGeneratedCodeForPhone; {
     [self.uiss generateCodeForUserInterfaceIdiom:UIUserInterfaceIdiomPhone
                                      codeHandler:^(NSString *code, NSArray *errors) {
                                          XCTAssertTrue(errors.count == 0, @"errors are unexpected");
@@ -38,43 +38,35 @@
                                      }];
 }
 
-- (void)testToolbarTintColor {
+- (void)testToolbarTintColor; {
     XCTAssertEqualObjects([[UIToolbar appearance] tintColor], [UIColor yellowColor]);
 }
 
-- (void)testToolbarBackgroundImage {
+- (void)testToolbarBackgroundImage; {
     UIImage *backgroundImage = [[UIToolbar appearance] backgroundImageForToolbarPosition:UIToolbarPositionAny
                                                                               barMetrics:UIBarMetricsDefault];
     XCTAssertNotNil(backgroundImage);
     XCTAssertEqualObjects([backgroundImage class], [UIImage class], @"bad property class", nil);
 }
 
-- (void)testTabBarItemTitlePositionAdjustment {
+- (void)testTabBarItemTitlePositionAdjustment; {
     UIOffset titlePositionAdjustment = [[UITabBarItem appearance] titlePositionAdjustment];
     XCTAssertTrue(UIOffsetEqualToOffset(titlePositionAdjustment, UIOffsetMake(10, 10)));
 }
 
-- (void)testNavigationBarTitleVerticalPositionAdjustment {
+- (void)testNavigationBarTitleVerticalPositionAdjustment; {
     XCTAssertEqual([[UINavigationBar appearance] titleVerticalPositionAdjustmentForBarMetrics:UIBarMetricsDefault], 10.0f);
 }
 
-- (void)testNavigationBarBackgroundImageForBarMetricsLandscapePhone {
+- (void)testNavigationBarBackgroundImageForBarMetricsLandscapePhone; {
     XCTAssertNotNil([[UINavigationBar appearance] backgroundImageForBarMetrics:UIBarMetricsLandscapePhone]);
 }
 
-- (void)testTabBarItemTitleTextAttributes {
+- (void)testTabBarItemTitleTextAttributes; {
     UIFont *font = [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal][UITextAttributeFont];
     XCTAssertNotNil(font);
     if (font) {
         XCTAssertEqualObjects(font, [UIFont systemFontOfSize:24]);
-    }
-}
-
-- (void)testImport {
-    UIFont *font = [UILabel appearanceWhenContainedIn:[UITableView class], nil].font;
-    XCTAssertNotNil(font);
-    if (font) {
-        XCTAssertEqualObjects(font, [UIFont boldSystemFontOfSize:15.0f]);
     }
 }
 

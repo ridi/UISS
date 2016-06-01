@@ -123,37 +123,6 @@ NSString *const UISSStyleDidParseDictionaryNotification = @"UISSStyleDidParseDic
     return dataParsed;
 }
 
-- (NSDictionary *)importSubJSONProcess:(NSDictionary *)dictionary {
-    NSMutableDictionary *processed = [NSMutableDictionary dictionary];
-    
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, id object, BOOL *stop) {
-        if ([key hasPrefix:@"@import"] && [object isKindOfClass:[NSString class]]) {
-            NSError *error;
-            NSString *path = [object stringByDeletingPathExtension];
-            NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:path withExtension:@"json"];
-            NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
-            if (error) {
-                [self.errors addObject:error];
-            } else {
-                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-                if (error) {
-                    [self.errors addObject:error];
-                } else {
-                    [processed addEntriesFromDictionary:dictionary];
-                    UISS_LOG(@"import: %@", url);
-                }
-            }
-        } else {
-            if ([object isKindOfClass:[NSDictionary class]]) {
-                object = [self importSubJSONProcess:object];
-            }
-            [processed setObject:object forKey:key];
-        }
-    }];
-    
-    return processed;
-}
-
 - (BOOL)parseDictionaryForUserInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom withConfig:(UISSConfig *)config {
     NSArray *propertySetters = [self propertySettersForUserInterfaceIdiom:userInterfaceIdiom];
 
@@ -166,8 +135,6 @@ NSString *const UISSStyleDidParseDictionaryNotification = @"UISSStyleDidParseDic
             return NO;
         }
     }
-    
-    self.dictionary = [self importSubJSONProcess:self.dictionary];
 
     [self postNotificationName:UISSStyleWillParseDictionaryNotification];
 
