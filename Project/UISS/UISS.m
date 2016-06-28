@@ -82,15 +82,22 @@ NSString *const UISSDidRefreshViewsNotification = @"UISSDidRefreshViewsNotificat
 #pragma mark - Factory Methods
 
 + (UISS *)configureWithJSONFilePath:(NSString *)filePath {
+    return [self configureWithJSONFilePath:filePath refresh:NO];
+}
+
++ (UISS *)configureWithJSONFilePath:(NSString *)filePath refresh:(BOOL)refresh {
     UISS *uiss = [[UISS alloc] init];
     uiss.style.url = [NSURL fileURLWithPath:filePath];
     [uiss loadStyleSynchronously];
+    if (refresh) {
+        [uiss refreshViews];
+    }
     return uiss;
 }
 
 + (UISS *)configureWithDefaultJSONFile {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"uiss" ofType:@"json"];
-    return [self configureWithJSONFilePath:filePath];
+    return [self configureWithJSONFilePath:filePath refresh:NO];
 }
 
 + (UISS *)configureWithURL:(NSURL *)url {

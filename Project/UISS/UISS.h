@@ -33,7 +33,8 @@ extern NSString *const UISSDidRefreshViewsNotification;
 
 #pragma mark - Factory Methods
 
-+ (UISS *)configureWithJSONFilePath:(NSString *)filePath;
++ (UISS *)configureWithJSONFilePath:(NSString *)filePath; // refresh = NO
++ (UISS *)configureWithJSONFilePath:(NSString *)filePath refresh:(BOOL)refresh;
 
 + (UISS *)configureWithDefaultJSONFile;
 
