@@ -173,6 +173,12 @@ NSString *const UISSDidRefreshViewsNotification = @"UISSDidRefreshViewsNotificat
     if (propertySetters) {
         [self configureAppearanceWithPropertySetters:propertySetters errors:self.style.errors];
     }
+    
+    #if UISS_DEBUG
+    if (self.style.errors.count) {
+        NSLog(@"UISS Errors: %@", self.style.errors);
+    }
+    #endif
 }
 
 - (void)refreshViews {
