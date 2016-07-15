@@ -7,6 +7,7 @@
 //
 
 #import "UISSMediaQueryPreprocessor.h"
+#import <sys/utsname.h>
 
 @interface UISSMediaQueryPreprocessor ()
 
@@ -69,6 +70,8 @@
                     return NO;
                 } else if ([name isEqualToString:@"device"] && userInterfaceIdiom != [self userInterfaceIdiomFromString:value]) {
                     return NO;
+                } else if ([name isEqualToString:@"poor"] && ![self evaluatePoorGraphics]) {
+                    return NO;
                 }
             }
         }
@@ -107,6 +110,34 @@
     } else {
         return NSNotFound;
     }
+}
+
+- (BOOL)evaluatePoorGraphics {
+    struct utsname u;
+    uname(&u);
+    NSString *modelName = [NSString stringWithCString:u.machine encoding:NSUTF8StringEncoding];
+    NSArray *poorList = @[
+        @"iPhone1,1", // iPhone
+        @"iPhone1,2", // iPhone 3G
+        @"iPhone2,1", // iPhone 3GS
+        @"iPhone3,1", // iPhone 4
+        @"iPhone3,2",
+        @"iPhone3,3",
+        @"iPod1,1", // iPod 1
+        @"iPod2,1", // iPod 2
+        @"iPod2,2",
+        @"iPod3,1", // iPod 3
+        @"iPod4,1", // iPod 4
+        @"iPad1,1", // iPad 1
+        @"iPad2,1", // iPad 2
+        @"iPad2,2",
+        @"iPad2,3",
+        @"iPad2,4",
+        @"iPad3,1", // iPad 3
+        @"iPad3,2",
+        @"iPad3,3",
+    ];
+    return [poorList containsObject:modelName];
 }
 
 @end
