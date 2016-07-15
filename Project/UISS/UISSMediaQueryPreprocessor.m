@@ -9,6 +9,12 @@
 #import "UISSMediaQueryPreprocessor.h"
 #import <sys/utsname.h>
 
+#if TARGET_IPHONE_SIMULATOR
+@interface UIDevice()
+- (long long)_graphicsQuality;
+@end
+#endif
+
 @interface UISSMediaQueryPreprocessor ()
 
 @property (nonatomic, copy, readonly) NSRegularExpression *queryRegex;
@@ -137,7 +143,22 @@
         @"iPad3,2",
         @"iPad3,3",
     ];
-    return [poorList containsObject:modelName];
+    
+#if TARGET_IPHONE_SIMULATOR
+    if ([[UIDevice currentDevice] _graphicsQuality] != 100) {
+        return YES;
+    }
+#endif
+    
+    if (UIAccessibilityIsReduceTransparencyEnabled()) {
+        return YES;
+    }
+    
+    if ([poorList containsObject:modelName]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end
