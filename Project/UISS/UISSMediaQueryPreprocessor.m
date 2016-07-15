@@ -27,7 +27,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _queryRegex = [[NSRegularExpression alloc] initWithPattern:@"@media\\s{0,}\\(([\\w\\s-]+:[\\w\\s].*)\\)" options:0 error:nil];
+        _queryRegex = [[NSRegularExpression alloc] initWithPattern:@"@media\\s{0,}\\(([\\w\\s-]+(:|)[\\w\\s].*)\\)" options:0 error:nil];
     }
     return self;
 }
@@ -70,14 +70,19 @@
             NSArray *components = [query componentsSeparatedByString:@","];
             for (NSString *component in components) {
                 NSArray *attr = [component componentsSeparatedByString:@":"];
-                NSString *name = [[attr[0] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                NSString *value = [attr[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                if ([name isEqualToString:@"os"] && ![self evaluateOSVersion:value]) {
-                    return NO;
-                } else if ([name isEqualToString:@"device"] && userInterfaceIdiom != [self userInterfaceIdiomFromString:value]) {
-                    return NO;
-                } else if ([name isEqualToString:@"poor"] && ![self evaluatePoorGraphics]) {
-                    return NO;
+                if (attr.count > 1) {
+                    NSString *name = [[attr[0] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    NSString *value = [attr[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    if ([name isEqualToString:@"os"] && ![self evaluateOSVersion:value]) {
+                        return NO;
+                    } else if ([name isEqualToString:@"device"] && userInterfaceIdiom != [self userInterfaceIdiomFromString:value]) {
+                        return NO;
+                    }
+                } else if (attr.count == 1) {
+                    NSString *name = [[attr[0] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    if ([name isEqualToString:@"poor"] && ![self evaluatePoorGraphics]) {
+                        return NO;
+                    }
                 }
             }
         }
