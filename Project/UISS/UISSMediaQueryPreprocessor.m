@@ -155,7 +155,7 @@
     }
 #endif
     
-    if (UIAccessibilityIsReduceTransparencyEnabled()) {
+    if (UIAccessibilityIsReduceTransparencyEnabled && UIAccessibilityIsReduceTransparencyEnabled()) {
         return YES;
     }
     
