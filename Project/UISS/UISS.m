@@ -135,7 +135,6 @@ NSString *const UISSDidRefreshViewsNotification = @"UISSDidRefreshViewsNotificat
                                                                                    forKey:UISSPropertySetterErrorKey]]];
         }
     }
-    [UISSPropertySetter invalidateMethodListCache];
 
     for (NSInvocation *invocation in invocations) {
         if ([self.configuredAppearanceProxies containsObject:invocation.target] == NO) {

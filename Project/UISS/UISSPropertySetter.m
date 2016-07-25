@@ -75,14 +75,25 @@
     return cache;
 }
 
-+ (void)invalidateMethodListCache {
-    [[UISSPropertySetter methodListCache] removeAllObjects];
++ (NSMutableDictionary *)matchingCache {
+    static NSMutableDictionary *cache;
+    if (cache == nil) {
+        cache = [NSMutableDictionary dictionary];
+    }
+    return cache;
 }
 
 - (SEL)findSelectorMatchingRegexp:(NSString *)regexp class:(Class <UIAppearance>)class currentBestSelector:(SEL)currentBestSelector {
-    NSMutableDictionary *cache = [UISSPropertySetter methodListCache];
     NSString *className = NSStringFromClass(class);
-    NSArray *methodList = [cache objectForKey:className];
+    NSMutableDictionary *matchingCache = [UISSPropertySetter matchingCache];
+    NSString *matchingKey = [NSString stringWithFormat:@"%@_%@", className, regexp];
+    NSString *cachedSelectorString = matchingCache[matchingKey];
+    if (cachedSelectorString) {
+        return NSSelectorFromString(cachedSelectorString);
+    }
+    
+    NSMutableDictionary *methodListCache = [UISSPropertySetter methodListCache];
+    NSArray *methodList = [methodListCache objectForKey:className];
     if (methodList == nil) {
         unsigned int count = 0;
         Method *methods = class_copyMethodList(class, &count);
@@ -94,7 +105,7 @@
         }
         free(methods);
         
-        [cache setObject:array forKey:className];
+        [methodListCache setObject:array forKey:className];
         methodList = array;
     }
     
@@ -111,6 +122,7 @@
                 if (currentBestSelector == NULL || NSStringFromSelector(currentBestSelector).length > selectorString.length) {
                     // found new shorter selector
                     currentBestSelector = NSSelectorFromString(selectorString);
+                    [matchingCache setObject:selectorString forKey:matchingKey];
                 }
             }
         }

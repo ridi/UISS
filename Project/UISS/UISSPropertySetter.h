@@ -28,7 +28,4 @@
 @property(nonatomic, readonly) NSString *generatedCode;
 @property(nonatomic, readonly) NSInvocation *invocation;
 
-+ (NSMutableDictionary *)methodListCache;
-+ (void)invalidateMethodListCache;
-
 @end
