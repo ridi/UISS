@@ -124,43 +124,35 @@
 }
 
 - (BOOL)evaluatePoorGraphics {
-    struct utsname u;
-    uname(&u);
-    NSString *modelName = [NSString stringWithCString:u.machine encoding:NSUTF8StringEncoding];
-    NSArray *poorList = @[
-        @"iPhone1,1", // iPhone
-        @"iPhone1,2", // iPhone 3G
-        @"iPhone2,1", // iPhone 3GS
-        @"iPhone3,1", // iPhone 4
-        @"iPhone3,2",
-        @"iPhone3,3",
-        @"iPod1,1", // iPod 1
-        @"iPod2,1", // iPod 2
-        @"iPod2,2",
-        @"iPod3,1", // iPod 3
-        @"iPod4,1", // iPod 4
-        @"iPad1,1", // iPad 1
-        @"iPad2,1", // iPad 2
-        @"iPad2,2",
-        @"iPad2,3",
-        @"iPad2,4",
-        @"iPad3,1", // iPad 3
-        @"iPad3,2",
-        @"iPad3,3",
-    ];
-    
 #if TARGET_IPHONE_SIMULATOR
     if ([[UIDevice currentDevice] _graphicsQuality] != 100) {
         return YES;
     }
 #endif
     
-    if (UIAccessibilityIsReduceTransparencyEnabled && UIAccessibilityIsReduceTransparencyEnabled()) {
+    if (UIAccessibilityIsReduceTransparencyEnabled()) {
         return YES;
     }
     
-    if ([poorList containsObject:modelName]) {
-        return YES;
+    struct utsname u;
+    uname(&u);
+    NSString *modelName = [NSString stringWithCString:u.machine encoding:NSUTF8StringEncoding];
+    NSArray *poorModels = @[
+        @"iPhone1",
+        @"iPhone2",
+        @"iPhone3",
+        @"iPod1",
+        @"iPod2",
+        @"iPod3",
+        @"iPod4",
+        @"iPad1",
+        @"iPad2",
+        @"iPad3",
+    ];
+    for (NSString *prefix in poorModels) {
+        if ([modelName hasPrefix:prefix]) {
+            return YES;
+        }
     }
     
     return NO;
