@@ -12,11 +12,13 @@
     if (self) {
         self.stringToValueDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithInteger:UIBarMetricsDefault], @"default",
-                                        [NSNumber numberWithInteger:UIBarMetricsLandscapePhone], @"landscapePhone",
+                                        [NSNumber numberWithInteger:UIBarMetricsCompact], @"compact",
+                                        [NSNumber numberWithInteger:UIBarMetricsCompactPrompt], @"compactPrompt",
                                         nil];
         self.stringToCodeDictionary= [NSDictionary dictionaryWithObjectsAndKeys:
                                       @"UIBarMetricsDefault", @"default",
-                                      @"UIBarMetricsLandscapePhone", @"landscapePhone",
+                                      @"UIBarMetricsCompact", @"compact",
+                                      @"UIBarMetricsCompactPrompt", @"compactPrompt",
                                       nil];
     }
     return self;

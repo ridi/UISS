@@ -68,7 +68,7 @@
         NSString *buttonTitle = [NSString stringWithFormat:@"Errors (%tu)", self.errors.count];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
-                                                                                  style:UIBarButtonItemStyleBordered 
+                                                                                  style:UIBarButtonItemStylePlain
                                                                                  target:self 
                                                                                  action:@selector(presentErrors)];
     } else {
