@@ -138,16 +138,16 @@
     uname(&u);
     NSString *modelName = [NSString stringWithCString:u.machine encoding:NSUTF8StringEncoding];
     NSArray *poorModels = @[
-        @"iPhone1",
-        @"iPhone2",
-        @"iPhone3",
-        @"iPod1",
-        @"iPod2",
-        @"iPod3",
-        @"iPod4",
-        @"iPad1",
-        @"iPad2",
-        @"iPad3",
+        @"iPhone1,",
+        @"iPhone2,",
+        @"iPhone3,",
+        @"iPod1,",
+        @"iPod2,",
+        @"iPod3,",
+        @"iPod4,",
+        @"iPad1,",
+        @"iPad2,",
+        @"iPad3,",
     ];
     for (NSString *prefix in poorModels) {
         if ([modelName hasPrefix:prefix]) {
