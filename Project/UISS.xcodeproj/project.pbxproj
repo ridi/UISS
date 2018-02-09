@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A649BBA202C457A002C964A /* UITextField+UISS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A649BB8202C457A002C964A /* UITextField+UISS.h */; };
+		2A649BBB202C457A002C964A /* UITextField+UISS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A649BB9202C457A002C964A /* UITextField+UISS.m */; };
 		8322A8E21CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8322A8E01CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.h */; };
 		8322A8E31CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322A8E11CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.m */; };
 		8322A8E71CFE862600BFF992 /* UISSMediaQueryPreprocessorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322A8E61CFE862600BFF992 /* UISSMediaQueryPreprocessorTests.m */; };
@@ -214,6 +216,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A649BB8202C457A002C964A /* UITextField+UISS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+UISS.h"; sourceTree = "<group>"; };
+		2A649BB9202C457A002C964A /* UITextField+UISS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+UISS.m"; sourceTree = "<group>"; };
 		8322A8E01CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISSMediaQueryPreprocessor.h; sourceTree = "<group>"; };
 		8322A8E11CFE6B5C00BFF992 /* UISSMediaQueryPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSMediaQueryPreprocessor.m; sourceTree = "<group>"; };
 		8322A8E61CFE862600BFF992 /* UISSMediaQueryPreprocessorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISSMediaQueryPreprocessorTests.m; sourceTree = "<group>"; };
@@ -783,6 +787,8 @@
 				83CD32DF1AB03957002EF2CA /* UIImage+UISS.m */,
 				83CD32E21AB0442D002EF2CA /* UIColor+UISS.h */,
 				83CD32E31AB0442D002EF2CA /* UIColor+UISS.m */,
+				2A649BB8202C457A002C964A /* UITextField+UISS.h */,
+				2A649BB9202C457A002C964A /* UITextField+UISS.m */,
 			);
 			name = "UIKit Helpers";
 			sourceTree = "<group>";
@@ -871,13 +877,13 @@
 				E1B438B7143F668000F87518 /* UISS.h */,
 				E1B438B8143F668000F87518 /* UISS.m */,
 				E1914CAD158F99BB00E04977 /* UISSStyle.h */,
+				E1914CAE158F99BB00E04977 /* UISSStyle.m */,
 				E145C8611584DCC70087BB1B /* UISSConfig.h */,
 				E145C8621584DCC70087BB1B /* UISSConfig.m */,
-				E1B438B5143F668000F87518 /* Supporting Files */,
-				E1914CAE158F99BB00E04977 /* UISSStyle.m */,
 				C8D2BB6EF9D36E1EAF33EC36 /* UISS+GestureRecognizers.m */,
 				C8D2B4CE65CB70FCA36103FD /* UISS+GestureRecognizers.h */,
 				E1C64FF516DFE8AF004861ED /* UISSMacros.h */,
+				E1B438B5143F668000F87518 /* Supporting Files */,
 			);
 			path = UISS;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				E13B646615890CC800E3613B /* UISSArgumentValueConverter.h in Headers */,
 				E123BA1E158A38FA004F8633 /* UISSAppearancePrivate.h in Headers */,
 				E1C67BD6158CCBD800E220BB /* UISSGeneratedCodeViewController.h in Headers */,
+				2A649BBA202C457A002C964A /* UITextField+UISS.h in Headers */,
 				E1C08347158E334E007A88E6 /* UISSError.h in Headers */,
 				83CD32E41AB0442D002EF2CA /* UIColor+UISS.h in Headers */,
 				E1F35EB11593A3F20074389E /* UIView+UISS.h in Headers */,
@@ -1234,6 +1241,7 @@
 				C8D2BCA04FA368B1EF9B6692 /* UISSTextAlignmentValueConverter.m in Sources */,
 				834C60791AF21CFF0061D33F /* UISSImageRenderingModeConverter.m in Sources */,
 				83CD32E51AB0442D002EF2CA /* UIColor+UISS.m in Sources */,
+				2A649BBB202C457A002C964A /* UITextField+UISS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

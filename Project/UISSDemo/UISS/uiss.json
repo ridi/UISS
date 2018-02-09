@@ -27,6 +27,14 @@
             "UILabel": {
                 "font": ["Copperplate-Bold", 18]
             }
+        },
+        "UITextField": {
+            "defaultTextAttributes": {
+                "textColor": "blue"
+            },
+            "placeholderTextAttributes": {
+                "textColor": ["blue", 0.5]
+            }
         }
     }
 }
